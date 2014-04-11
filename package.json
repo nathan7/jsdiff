@@ -1,6 +1,6 @@
 {
   "name": "jsdiff",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "diff objects",
   "main": "index.js",
   "dependencies": {
