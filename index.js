@@ -42,3 +42,20 @@ function diff(value, other) {
 
   return ret
 }
+
+diff.patch = patch
+function patch(diff, fresh, model) {
+  p(diff, fresh, [])
+  function p(diff, fresh, prefix) {
+    for (var key in diff) if (has.call(diff, key)) {
+      if (diff[key] === true) {
+        if (has.call(fresh || {}, key))
+          model.set(prefix.concat(key), fresh[key])
+        else
+          model.delete(prefix.concat(key))
+      }
+      else
+        p(diff[key], fresh && fresh[key], prefix.concat(key))
+    }
+  }
+}

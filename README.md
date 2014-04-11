@@ -23,3 +23,23 @@
 
   `diff([1, 2, 3], [1, 2, 4])` -> `[ , , true ]`
 
+### diff.patch(d, b, model)
+
+  patch up a model using a diff.
+
+```js
+var a = { a: 'foo' }
+  , b = { b: 'bar', c: { deep: 'stuff' } }
+diff.patch(diff(a, b), b,
+  { set: console.log.bind(console, 'set')
+  , delete: console.log.bind(console, 'delete')
+  })
+```
+
+  output:
+
+```
+delete [ 'a' ]
+set [ 'b' ] bar
+set [ 'c', 'deep' ] stuff
+```
