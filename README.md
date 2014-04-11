@@ -15,11 +15,11 @@
 
   `diff({ a: 'foo' }, { a: 'bar' })` -> `{ a: true }`
 
-  `diff({ a: 'foo' }, { b: 'bar' })` -> `{ a: true }`
+  `diff({ a: 'foo' }, { b: 'bar' })` -> `{ a: true, b: true }`
 
-  `diff({}, { b: 'foo' })` -> `false`
+  `diff({}, { b: 'foo' })` -> `{ b: true }`
 
-  `diff({ a: { b: 'foo'} }, { b: 'bar' })` -> `{ a: { b: true } }`
+  `diff({ a: { b: 'foo'} }, { b: 'bar' })` -> `{ a: { b: true }, b: true }`
 
   `diff([1, 2, 3], [1, 2, 4])` -> `[ , , true ]`
 

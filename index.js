@@ -29,7 +29,7 @@ function diff(value, other) {
     var key
       , keys = {}
     for (key in obj) if (has.call(obj, key)) keys[key] = true
-    for (key in otherObj) if (has.call(obj, key)) keys[key] = true
+    for (key in otherObj) if (has.call(otherObj, key)) keys[key] = true
 
     for (key in keys) if (has.call(keys, key)) {
       d = diff(obj[key], otherObj[key])
